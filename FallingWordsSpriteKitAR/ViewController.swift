@@ -257,7 +257,7 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
         
         labelNode.addChild(shadowLabelNode)
         
-        let moveDown = SKAction.moveTo(y: CGFloat(-400), duration: 5)
+        let moveDown = SKAction.moveTo(y: CGFloat(-400), duration: 7)
 
         labelNode.removeAllActions()
         labelNode.run(moveDown) {
