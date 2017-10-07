@@ -12,7 +12,9 @@ import ARKit
 
 class ViewController: UIViewController, ARSKViewDelegate {
     
-    @IBOutlet var sceneView: ARSKView!
+    @IBOutlet weak var sceneView: ARSKView!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var wordsLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +63,9 @@ class ViewController: UIViewController, ARSKViewDelegate {
     
     func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
         // Create and configure a node for the anchor added to the view's session.
-        let labelNode = SKLabelNode(text: WordProvider.shared.getNextWord()) //"👾")
+        let newWord = WordProvider.shared.getNextWord()
+        print("newWord: \(newWord)")
+        let labelNode = SKLabelNode(text: newWord) //"👾")
         labelNode.fontSize = 50
         labelNode.fontName = "HelveticaNeue"
         labelNode.horizontalAlignmentMode = .center
@@ -71,7 +75,7 @@ class ViewController: UIViewController, ARSKViewDelegate {
 
         labelNode.removeAllActions()
         labelNode.run(moveDown) {
-            self.gameOver()
+//            self.gameOver()
             labelNode.removeFromParent()
         }
         

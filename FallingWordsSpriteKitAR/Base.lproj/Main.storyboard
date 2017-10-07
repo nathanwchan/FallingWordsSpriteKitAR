@@ -1,24 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A278a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <arskView key="view" contentMode="scaleToFill" id="EO5-fy-WZq">
+                <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="FallingWordsSpriteKitAR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aFN-5D-hCL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </arskView>
+                        <subviews>
+                            <arskView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rNe-cM-Aqj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                            </arskView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i1z-RP-lWA">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Sl-zi-urk">
+                                        <rect key="frame" x="8" y="15" width="44.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="words" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ezg-JP-VUL">
+                                        <rect key="frame" x="164" y="14" width="46.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="2Sl-zi-urk" secondAttribute="bottom" constant="14" id="1m1-RY-pj9"/>
+                                    <constraint firstItem="Ezg-JP-VUL" firstAttribute="centerX" secondItem="i1z-RP-lWA" secondAttribute="centerX" id="6Xu-Oy-s0s"/>
+                                    <constraint firstAttribute="height" constant="50" id="9dI-5b-GBO"/>
+                                    <constraint firstItem="Ezg-JP-VUL" firstAttribute="top" secondItem="i1z-RP-lWA" secondAttribute="top" constant="14" id="Zdx-gb-1NP"/>
+                                    <constraint firstItem="2Sl-zi-urk" firstAttribute="leading" secondItem="i1z-RP-lWA" secondAttribute="leading" constant="8" id="gVK-KT-cyJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ezg-JP-VUL" secondAttribute="bottom" constant="15" id="rvB-Qc-oQj"/>
+                                    <constraint firstItem="2Sl-zi-urk" firstAttribute="top" secondItem="i1z-RP-lWA" secondAttribute="top" constant="15" id="xOB-5s-N87"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eQW-3a-0rh" firstAttribute="trailing" secondItem="rNe-cM-Aqj" secondAttribute="trailing" id="KBV-13-sTj"/>
+                            <constraint firstItem="rNe-cM-Aqj" firstAttribute="leading" secondItem="eQW-3a-0rh" secondAttribute="leading" id="Onn-kO-XS7"/>
+                            <constraint firstItem="eQW-3a-0rh" firstAttribute="trailing" secondItem="i1z-RP-lWA" secondAttribute="trailing" id="ZET-KC-obP"/>
+                            <constraint firstItem="i1z-RP-lWA" firstAttribute="leading" secondItem="eQW-3a-0rh" secondAttribute="leading" id="kkv-wB-eBx"/>
+                            <constraint firstItem="eQW-3a-0rh" firstAttribute="bottom" secondItem="i1z-RP-lWA" secondAttribute="bottom" id="l3h-bN-XmQ"/>
+                            <constraint firstItem="eQW-3a-0rh" firstAttribute="top" secondItem="rNe-cM-Aqj" secondAttribute="top" constant="20" id="llh-xJ-tR1"/>
+                            <constraint firstItem="rNe-cM-Aqj" firstAttribute="bottom" secondItem="i1z-RP-lWA" secondAttribute="top" id="q2J-me-mUi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eQW-3a-0rh"/>
+                    </view>
                     <connections>
-                        <outlet property="sceneView" destination="EO5-fy-WZq" id="YuC-8q-ovz"/>
+                        <outlet property="sceneView" destination="rNe-cM-Aqj" id="ty0-S9-I5z"/>
+                        <outlet property="scoreLabel" destination="2Sl-zi-urk" id="j6s-Hd-c0G"/>
+                        <outlet property="wordsLabel" destination="Ezg-JP-VUL" id="Grp-5L-tet"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="46.326836581709152"/>
         </scene>
     </scenes>
 </document>
