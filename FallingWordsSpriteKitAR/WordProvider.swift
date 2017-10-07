@@ -8,10 +8,23 @@
 
 import Foundation
 
+var easy_word_dic = ["name": ["Aldo", "Clay", "Dan", "Ethan", "Gus", "Henry", "Angle", "Bay", "Kathy", "Kelly", "Lily", "Liza"],
+                     "office": [],
+                     "transportation": [],
+                     "airport": [],
+                     "shopping": []]
+
+var advanced_word_dic = ["name": [],
+                         "office": [],
+                         "transportation": [],
+                         "airport": [],
+                         "shopping": []]
+
 final class WordProvider {
     static let shared = WordProvider()
     private init() {
         words = ["apple", "dog", "banana", "cat", "zebra", "chair"]
+        
         words.shuffle()
     }
     var words: [String]
