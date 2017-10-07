@@ -18,6 +18,8 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
     @IBOutlet weak var wordsLabel: UILabel!
     @IBOutlet weak var redLabel: UILabel!
     @IBOutlet weak var progressStackView: UIStackView!
+
+    
     
     private var speechRecognizer: SFSpeechRecognizer?
     

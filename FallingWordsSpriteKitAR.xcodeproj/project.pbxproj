@@ -22,6 +22,13 @@
 		C13367521F89773E006E8705 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13367511F89773E006E8705 /* HomeViewController.swift */; };
 		C13367551F898AAA006E8705 /* fallingwords_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = C13367531F898AAA006E8705 /* fallingwords_mark.png */; };
 		C13367561F898AAA006E8705 /* fallingwords_tall.png in Resources */ = {isa = PBXBuildFile; fileRef = C13367541F898AAA006E8705 /* fallingwords_tall.png */; };
+		C133675C1F89934A006E8705 /* falling180.png in Resources */ = {isa = PBXBuildFile; fileRef = C133675A1F89934A006E8705 /* falling180.png */; };
+		C133675D1F89934A006E8705 /* falling120.png in Resources */ = {isa = PBXBuildFile; fileRef = C133675B1F89934A006E8705 /* falling120.png */; };
+		C13367621F8993C8006E8705 /* falling60.png in Resources */ = {isa = PBXBuildFile; fileRef = C133675E1F8993C8006E8705 /* falling60.png */; };
+		C13367631F8993C8006E8705 /* falling40.png in Resources */ = {isa = PBXBuildFile; fileRef = C133675F1F8993C8006E8705 /* falling40.png */; };
+		C13367641F8993C8006E8705 /* falling80.png in Resources */ = {isa = PBXBuildFile; fileRef = C13367601F8993C8006E8705 /* falling80.png */; };
+		C13367651F8993C8006E8705 /* falling20.png in Resources */ = {isa = PBXBuildFile; fileRef = C13367611F8993C8006E8705 /* falling20.png */; };
+		C13367671F89958D006E8705 /* falling1024.png in Resources */ = {isa = PBXBuildFile; fileRef = C13367661F89958D006E8705 /* falling1024.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +49,13 @@
 		C13367511F89773E006E8705 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C13367531F898AAA006E8705 /* fallingwords_mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fallingwords_mark.png; path = FallingWordsSpriteKitAR/images/fallingwords_mark.png; sourceTree = SOURCE_ROOT; };
 		C13367541F898AAA006E8705 /* fallingwords_tall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fallingwords_tall.png; path = FallingWordsSpriteKitAR/images/fallingwords_tall.png; sourceTree = SOURCE_ROOT; };
+		C133675A1F89934A006E8705 /* falling180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = falling180.png; sourceTree = "<group>"; };
+		C133675B1F89934A006E8705 /* falling120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = falling120.png; sourceTree = "<group>"; };
+		C133675E1F8993C8006E8705 /* falling60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = falling60.png; sourceTree = "<group>"; };
+		C133675F1F8993C8006E8705 /* falling40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = falling40.png; sourceTree = "<group>"; };
+		C13367601F8993C8006E8705 /* falling80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = falling80.png; sourceTree = "<group>"; };
+		C13367611F8993C8006E8705 /* falling20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = falling20.png; sourceTree = "<group>"; };
+		C13367661F89958D006E8705 /* falling1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = falling1024.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +88,7 @@
 		C13367231F88A7B3006E8705 /* FallingWordsSpriteKitAR */ = {
 			isa = PBXGroup;
 			children = (
+				C13367571F8992B2006E8705 /* icons */,
 				C133674A1F896EFD006E8705 /* images */,
 				C13367241F88A7B3006E8705 /* AppDelegate.swift */,
 				C13367261F88A7B3006E8705 /* Scene.sks */,
@@ -101,6 +116,20 @@
 			);
 			name = images;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		C13367571F8992B2006E8705 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				C13367661F89958D006E8705 /* falling1024.png */,
+				C13367611F8993C8006E8705 /* falling20.png */,
+				C133675F1F8993C8006E8705 /* falling40.png */,
+				C133675E1F8993C8006E8705 /* falling60.png */,
+				C13367601F8993C8006E8705 /* falling80.png */,
+				C133675B1F89934A006E8705 /* falling120.png */,
+				C133675A1F89934A006E8705 /* falling180.png */,
+			);
+			path = icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,15 +191,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C13367621F8993C8006E8705 /* falling60.png in Resources */,
 				C13367501F896F07006E8705 /* death.png in Resources */,
 				C133674E1F896F07006E8705 /* chevron_left.png in Resources */,
 				C13367561F898AAA006E8705 /* fallingwords_tall.png in Resources */,
 				C13367271F88A7B3006E8705 /* Scene.sks in Resources */,
+				C13367641F8993C8006E8705 /* falling80.png in Resources */,
+				C13367671F89958D006E8705 /* falling1024.png in Resources */,
+				C13367631F8993C8006E8705 /* falling40.png in Resources */,
 				C133674F1F896F07006E8705 /* chevron_right.png in Resources */,
 				C13367331F88A7B3006E8705 /* LaunchScreen.storyboard in Resources */,
 				C13367301F88A7B3006E8705 /* Assets.xcassets in Resources */,
+				C133675C1F89934A006E8705 /* falling180.png in Resources */,
 				C13367551F898AAA006E8705 /* fallingwords_mark.png in Resources */,
+				C133675D1F89934A006E8705 /* falling120.png in Resources */,
 				C133672E1F88A7B3006E8705 /* Main.storyboard in Resources */,
+				C13367651F8993C8006E8705 /* falling20.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
