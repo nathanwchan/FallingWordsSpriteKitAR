@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Sj6-cB-DeF">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -8,7 +8,92 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
     <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="IyH-A4-UpC">
+            <objects>
+                <viewController id="Sj6-cB-DeF" customClass="HomeViewController" customModule="FallingWordsSpriteKitAR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="caP-1X-8PI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogm-NI-BnI">
+                                <rect key="frame" x="92" y="213" width="191" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="Names">
+                                    <color key="titleShadowColor" red="0.78808718919999998" green="0.78791451450000005" blue="0.80853986739999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="knx-U9-lwn">
+                                <rect key="frame" x="92" y="277" width="191" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="Office">
+                                    <color key="titleShadowColor" red="0.78808718919999998" green="0.78791451450000005" blue="0.80853986739999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dom-bk-UwW">
+                                <rect key="frame" x="92" y="343" width="191" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="Transportation">
+                                    <color key="titleShadowColor" red="0.78808718919999998" green="0.78791451450000005" blue="0.80853986739999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="transportationButtonClick:" destination="Sj6-cB-DeF" eventType="touchUpInside" id="rAO-sY-xDm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jI8-uw-No0">
+                                <rect key="frame" x="92" y="410" width="191" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="Airport">
+                                    <color key="titleShadowColor" red="0.78808718919999998" green="0.78791451450000005" blue="0.80853986739999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ixn-8T-PKD">
+                                <rect key="frame" x="92" y="475" width="191" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="Shopping">
+                                    <color key="titleShadowColor" red="0.78808718919999998" green="0.78791451450000005" blue="0.80853986739999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjz-dk-Rmk">
+                                <rect key="frame" x="92" y="542" width="191" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="中文">
+                                    <color key="titleShadowColor" red="0.78808718919999998" green="0.78791451450000005" blue="0.80853986739999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="chineseButtonClick:" destination="Sj6-cB-DeF" eventType="touchUpInside" id="RlC-qI-ZF1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="jFl-Qg-vyo"/>
+                    </view>
+                    <connections>
+                        <segue destination="BV1-FR-VrT" kind="show" identifier="ARSegue" id="YDL-OZ-LtQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tFl-Fv-7Zl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-786.39999999999998" y="44.527736131934034"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
@@ -18,7 +103,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <arskView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rNe-cM-Aqj">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="597"/>
                             </arskView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i1z-RP-lWA">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
@@ -55,20 +140,40 @@
                                     <constraint firstItem="2Sl-zi-urk" firstAttribute="top" secondItem="i1z-RP-lWA" secondAttribute="top" constant="15" id="xOB-5s-N87"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhd-0a-6fL" userLabel="ProgressView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="10"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqm-he-UsA">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="10"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="eqm-he-UsA" firstAttribute="leading" secondItem="rhd-0a-6fL" secondAttribute="leading" id="1Ji-bX-e2b"/>
+                                    <constraint firstAttribute="trailing" secondItem="eqm-he-UsA" secondAttribute="trailing" id="A4H-Re-0wk"/>
+                                    <constraint firstItem="eqm-he-UsA" firstAttribute="top" secondItem="rhd-0a-6fL" secondAttribute="top" id="VH9-0R-Y7E"/>
+                                    <constraint firstItem="eqm-he-UsA" firstAttribute="height" secondItem="rhd-0a-6fL" secondAttribute="height" id="jG8-Vb-cQO"/>
+                                    <constraint firstAttribute="height" constant="10" id="y4C-gS-8jd"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eQW-3a-0rh" firstAttribute="trailing" secondItem="rNe-cM-Aqj" secondAttribute="trailing" id="KBV-13-sTj"/>
                             <constraint firstItem="rNe-cM-Aqj" firstAttribute="leading" secondItem="eQW-3a-0rh" secondAttribute="leading" id="Onn-kO-XS7"/>
                             <constraint firstItem="eQW-3a-0rh" firstAttribute="trailing" secondItem="i1z-RP-lWA" secondAttribute="trailing" id="ZET-KC-obP"/>
+                            <constraint firstItem="eQW-3a-0rh" firstAttribute="trailing" secondItem="rhd-0a-6fL" secondAttribute="trailing" id="jju-hT-c3R"/>
                             <constraint firstItem="i1z-RP-lWA" firstAttribute="leading" secondItem="eQW-3a-0rh" secondAttribute="leading" id="kkv-wB-eBx"/>
                             <constraint firstItem="eQW-3a-0rh" firstAttribute="bottom" secondItem="i1z-RP-lWA" secondAttribute="bottom" id="l3h-bN-XmQ"/>
-                            <constraint firstItem="eQW-3a-0rh" firstAttribute="top" secondItem="rNe-cM-Aqj" secondAttribute="top" constant="20" id="llh-xJ-tR1"/>
+                            <constraint firstItem="eQW-3a-0rh" firstAttribute="top" secondItem="rNe-cM-Aqj" secondAttribute="top" id="llh-xJ-tR1"/>
+                            <constraint firstItem="eQW-3a-0rh" firstAttribute="top" secondItem="rhd-0a-6fL" secondAttribute="top" id="pkx-5z-EDD"/>
                             <constraint firstItem="rNe-cM-Aqj" firstAttribute="bottom" secondItem="i1z-RP-lWA" secondAttribute="top" id="q2J-me-mUi"/>
+                            <constraint firstItem="rhd-0a-6fL" firstAttribute="leading" secondItem="eQW-3a-0rh" secondAttribute="leading" id="uMU-F7-IUg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eQW-3a-0rh"/>
                     </view>
                     <connections>
+                        <outlet property="progressStackView" destination="eqm-he-UsA" id="wTe-NN-zBF"/>
                         <outlet property="redLabel" destination="EsB-d2-o8k" id="2LC-JP-Cii"/>
                         <outlet property="sceneView" destination="rNe-cM-Aqj" id="ty0-S9-I5z"/>
                         <outlet property="scoreLabel" destination="2Sl-zi-urk" id="j6s-Hd-c0G"/>
