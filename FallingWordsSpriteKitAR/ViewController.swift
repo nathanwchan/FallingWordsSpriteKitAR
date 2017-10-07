@@ -237,11 +237,23 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
         
         let newWord = wordProvider.getNextWord()
         print("newWord: \(newWord)")
+        
+        let shadowLabelNode = SKLabelNode(text: newWord) //"👾")
+        shadowLabelNode.fontSize = 50
+        shadowLabelNode.fontName = "HelveticaNeue"
+        shadowLabelNode.horizontalAlignmentMode = .center
+        shadowLabelNode.verticalAlignmentMode = .center
+        shadowLabelNode.position = CGPoint(x: 2, y: -2)
+        shadowLabelNode.fontColor = UIColor.black
+        shadowLabelNode.zPosition = -1
+        
         let labelNode = SKLabelNode(text: newWord) //"👾")
         labelNode.fontSize = 50
         labelNode.fontName = "HelveticaNeue"
         labelNode.horizontalAlignmentMode = .center
         labelNode.verticalAlignmentMode = .center
+        
+        labelNode.addChild(shadowLabelNode)
         
         let moveDown = SKAction.moveTo(y: CGFloat(-400), duration: 5)
 
