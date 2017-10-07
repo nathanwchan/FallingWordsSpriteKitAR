@@ -29,18 +29,6 @@ class Scene: SKScene {
         }
     }
 
-//        if let currentFrame = sceneView.session.currentFrame {
-//            for anchor in currentFrame.anchors {
-//                if let someNode = sceneView.node(for: anchor){
-//                    if let labelNode = someNode as? SKLabelNode {
-////                        print(labelNode.text ?? "none")
-//                    }
-//                }
-//
-//            }
-//        }
-//    }
-
 //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     func addNewWordToScene() {
         guard let sceneView = self.view as? ARSKView else {
@@ -58,7 +46,7 @@ class Scene: SKScene {
             
             // Translate in left/right direction
             let horizontalTranslate = getRandomFloat(between: -1.0, and: 1.0)
-            print("horizontalTranslate: \(horizontalTranslate)")
+//            print("horizontalTranslate: \(horizontalTranslate)")
             translation.columns.3.y = horizontalTranslate
             
             // Translate in forward (depth) direction
