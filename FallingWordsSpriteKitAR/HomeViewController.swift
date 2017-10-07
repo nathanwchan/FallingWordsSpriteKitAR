@@ -20,6 +20,12 @@ class HomeViewController: UIViewController {
         wordProviderType = "chinese"
         segueToARVC()
     }
+    @IBOutlet weak var namesButton: UIButton!
+    @IBOutlet weak var officeButton: UIButton!
+    @IBOutlet weak var transportationButton: UIButton!
+    @IBOutlet weak var airportButton: UIButton!
+    @IBOutlet weak var shoppingButton: UIButton!
+    @IBOutlet weak var chineseButton: UIButton!
     
     func segueToARVC() {
         DispatchQueue.main.async {
@@ -45,6 +51,11 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        namesButton.layer.cornerRadius = 20
+        officeButton.layer.cornerRadius = 20
+        transportationButton.layer.cornerRadius = 20
+        airportButton.layer.cornerRadius = 20
+        shoppingButton.layer.cornerRadius = 20
+        chineseButton.layer.cornerRadius = 20
     }
 }
