@@ -16,6 +16,7 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
     @IBOutlet weak var sceneView: ARSKView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var wordsLabel: UILabel!
+    @IBOutlet weak var redLabel: UILabel!
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))!
     
@@ -25,7 +26,7 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
     
     var score: Int = 0 {
         didSet {
-            self.scoreLabel.text = String(describing: score)
+            self.scoreLabel.text = "Score: \(score)"
         }
     }
     var lastWord: String?
@@ -72,9 +73,33 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
         // Release any cached data, images, etc that aren't in use.
     }
     
-    func gameOver() {
+    func missedWord(_ word: String) {
 //        sceneView.session.pause()
-        print("game over")
+        print("missedWord: \(word)")
+        let image = UIImage(named: "death")
+        let imageView = UIImageView(image: image)
+        imageView.alpha = 0.75
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+
+        view.addSubview(imageView)
+        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        UIView.animate(withDuration: 2, animations: {
+            imageView.alpha = 0.0
+        }, completion: { _ in
+            imageView.removeFromSuperview()
+        })
+        
+        redLabel.alpha = 1.0
+        redLabel.text = word
+        
+        UIView.animate(withDuration: 4, animations: {
+            self.redLabel.alpha = 0.0
+        }, completion: { _ in
+        })
     }
     
     func startRecording() {
@@ -178,7 +203,7 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
 
         labelNode.removeAllActions()
         labelNode.run(moveDown) {
-//            self.gameOver()
+            self.missedWord(newWord)
             labelNode.removeFromParent()
         }
         

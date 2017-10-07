@@ -29,10 +29,16 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Sl-zi-urk">
-                                        <rect key="frame" x="15" y="15" width="10.5" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Sl-zi-urk">
+                                        <rect key="frame" x="15" y="15" width="64" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EsB-d2-o8k" userLabel="Red Label">
+                                        <rect key="frame" x="360" y="24.5" width="0.0" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -42,6 +48,8 @@
                                     <constraint firstItem="Ezg-JP-VUL" firstAttribute="centerX" secondItem="i1z-RP-lWA" secondAttribute="centerX" id="6Xu-Oy-s0s"/>
                                     <constraint firstAttribute="height" constant="50" id="9dI-5b-GBO"/>
                                     <constraint firstItem="Ezg-JP-VUL" firstAttribute="top" secondItem="i1z-RP-lWA" secondAttribute="top" constant="14" id="Zdx-gb-1NP"/>
+                                    <constraint firstItem="EsB-d2-o8k" firstAttribute="centerY" secondItem="i1z-RP-lWA" secondAttribute="centerY" id="amn-az-U4k"/>
+                                    <constraint firstAttribute="trailing" secondItem="EsB-d2-o8k" secondAttribute="trailing" constant="15" id="f6s-EJ-QOg"/>
                                     <constraint firstItem="2Sl-zi-urk" firstAttribute="leading" secondItem="i1z-RP-lWA" secondAttribute="leading" constant="15" id="gVK-KT-cyJ"/>
                                     <constraint firstAttribute="bottom" secondItem="Ezg-JP-VUL" secondAttribute="bottom" constant="15" id="rvB-Qc-oQj"/>
                                     <constraint firstItem="2Sl-zi-urk" firstAttribute="top" secondItem="i1z-RP-lWA" secondAttribute="top" constant="15" id="xOB-5s-N87"/>
@@ -61,6 +69,7 @@
                         <viewLayoutGuide key="safeArea" id="eQW-3a-0rh"/>
                     </view>
                     <connections>
+                        <outlet property="redLabel" destination="EsB-d2-o8k" id="2LC-JP-Cii"/>
                         <outlet property="sceneView" destination="rNe-cM-Aqj" id="ty0-S9-I5z"/>
                         <outlet property="scoreLabel" destination="2Sl-zi-urk" id="j6s-Hd-c0G"/>
                         <outlet property="wordsLabel" destination="Ezg-JP-VUL" id="Grp-5L-tet"/>

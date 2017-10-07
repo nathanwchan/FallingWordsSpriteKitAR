@@ -18,6 +18,7 @@
 		C133673D1F893FEF006E8705 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C133673C1F893FEF006E8705 /* Utils.swift */; };
 		C13367431F894F4D006E8705 /* chevron_left.png in Resources */ = {isa = PBXBuildFile; fileRef = C13367421F894F4D006E8705 /* chevron_left.png */; };
 		C13367451F895282006E8705 /* chevron_right.png in Resources */ = {isa = PBXBuildFile; fileRef = C13367441F895281006E8705 /* chevron_right.png */; };
+		C13367491F896A71006E8705 /* death.png in Resources */ = {isa = PBXBuildFile; fileRef = C13367481F896A71006E8705 /* death.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		C133673C1F893FEF006E8705 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		C13367421F894F4D006E8705 /* chevron_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chevron_left.png; path = ../../../Downloads/chevron_left.png; sourceTree = "<group>"; };
 		C13367441F895281006E8705 /* chevron_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chevron_right.png; path = ../../../Downloads/chevron_right.png; sourceTree = "<group>"; };
+		C13367481F896A71006E8705 /* death.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = death.png; path = ../../../Downloads/death.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		C13367231F88A7B3006E8705 /* FallingWordsSpriteKitAR */ = {
 			isa = PBXGroup;
 			children = (
+				C13367481F896A71006E8705 /* death.png */,
 				C13367441F895281006E8705 /* chevron_right.png */,
 				C13367421F894F4D006E8705 /* chevron_left.png */,
 				C13367241F88A7B3006E8705 /* AppDelegate.swift */,
@@ -141,6 +144,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C13367491F896A71006E8705 /* death.png in Resources */,
 				C13367271F88A7B3006E8705 /* Scene.sks in Resources */,
 				C13367331F88A7B3006E8705 /* LaunchScreen.storyboard in Resources */,
 				C13367451F895282006E8705 /* chevron_right.png in Resources */,
