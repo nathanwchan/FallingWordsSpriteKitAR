@@ -19,6 +19,7 @@
 		C133674E1F896F07006E8705 /* chevron_left.png in Resources */ = {isa = PBXBuildFile; fileRef = C133674B1F896F07006E8705 /* chevron_left.png */; };
 		C133674F1F896F07006E8705 /* chevron_right.png in Resources */ = {isa = PBXBuildFile; fileRef = C133674C1F896F07006E8705 /* chevron_right.png */; };
 		C13367501F896F07006E8705 /* death.png in Resources */ = {isa = PBXBuildFile; fileRef = C133674D1F896F07006E8705 /* death.png */; };
+		C13367521F89773E006E8705 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13367511F89773E006E8705 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		C133674B1F896F07006E8705 /* chevron_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chevron_left.png; path = FallingWordsSpriteKitAR/images/chevron_left.png; sourceTree = SOURCE_ROOT; };
 		C133674C1F896F07006E8705 /* chevron_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chevron_right.png; path = FallingWordsSpriteKitAR/images/chevron_right.png; sourceTree = SOURCE_ROOT; };
 		C133674D1F896F07006E8705 /* death.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = death.png; path = FallingWordsSpriteKitAR/images/death.png; sourceTree = SOURCE_ROOT; };
+		C13367511F89773E006E8705 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				C13367241F88A7B3006E8705 /* AppDelegate.swift */,
 				C13367261F88A7B3006E8705 /* Scene.sks */,
 				C13367281F88A7B3006E8705 /* Scene.swift */,
+				C13367511F89773E006E8705 /* HomeViewController.swift */,
 				C133672A1F88A7B3006E8705 /* ViewController.swift */,
 				C133672C1F88A7B3006E8705 /* Main.storyboard */,
 				C133672F1F88A7B3006E8705 /* Assets.xcassets */,
@@ -175,6 +178,7 @@
 				C133672B1F88A7B3006E8705 /* ViewController.swift in Sources */,
 				C13367291F88A7B3006E8705 /* Scene.swift in Sources */,
 				C13367251F88A7B3006E8705 /* AppDelegate.swift in Sources */,
+				C13367521F89773E006E8705 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

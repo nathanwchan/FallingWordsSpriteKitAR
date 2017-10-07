@@ -17,33 +17,55 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var wordsLabel: UILabel!
     @IBOutlet weak var redLabel: UILabel!
+    @IBOutlet weak var progressStackView: UIStackView!
     
-    private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))!
+    private var speechRecognizer: SFSpeechRecognizer?
     
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
     
+    var wordProvider: WordProvider?
+    var wordProviderType: String?
     var score: Int = 0 {
         didSet {
             self.scoreLabel.text = "Score: \(score)"
         }
     }
     var lastWord: String?
+    var currentWordIndex = 0
+    let maxWords = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var languageCode = "en-US"
+        if let wordProviderType = wordProviderType, wordProviderType == "chinese" {
+            languageCode = "zh-Hans"
+        }
+        speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: languageCode))
+        
         sceneView.delegate = self
-        speechRecognizer.delegate = self
+        speechRecognizer?.delegate = self
+        
+        wordProvider = WordProvider(type: wordProviderType ?? "simple")
+        
+        for _ in 0..<maxWords {
+            let uiview = UIView.init(frame: .zero)
+            uiview.backgroundColor = .gray
+            progressStackView.addArrangedSubview(uiview)
+            progressStackView.distribution = .fillEqually
+            progressStackView.alignment = .fill
+            progressStackView.spacing = 1
+        }
         
         SFSpeechRecognizer.requestAuthorization { (authStatus) in
         }
         startRecording()
         
         // Show statistics such as fps and node count
-        sceneView.showsFPS = true
-        sceneView.showsNodeCount = true
+//        sceneView.showsFPS = true
+//        sceneView.showsNodeCount = true
         
         // Load the SKScene from 'Scene.sks'
         if let scene = SKScene(fileNamed: "Scene") {
@@ -73,6 +95,13 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
         // Release any cached data, images, etc that aren't in use.
     }
     
+    func resetProgressStackView() {
+        currentWordIndex = 0
+        for uiview in progressStackView.arrangedSubviews {
+            uiview.backgroundColor = .gray
+        }
+    }
+    
     func missedWord(_ word: String) {
 //        sceneView.session.pause()
         print("missedWord: \(word)")
@@ -100,6 +129,12 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
             self.redLabel.alpha = 0.0
         }, completion: { _ in
         })
+        
+        if currentWordIndex >= maxWords {
+            resetProgressStackView()
+        }
+        progressStackView.arrangedSubviews[currentWordIndex].backgroundColor = .red
+        currentWordIndex += 1
     }
     
     func startRecording() {
@@ -128,7 +163,7 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
         
         recognitionRequest.shouldReportPartialResults = true  //6
         
-        recognitionTask = speechRecognizer.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in  //7
+        recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in  //7
             
             var isFinal = false  //8
             
@@ -181,6 +216,11 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
                         if nodeText.lowercased() == word.lowercased() {
                             labelNode.removeFromParent()
                             score += 1
+                            if currentWordIndex >= maxWords {
+                                resetProgressStackView()
+                            }
+                            progressStackView.arrangedSubviews[currentWordIndex].backgroundColor = .green
+                            currentWordIndex += 1
                         }
                     }
                 }
@@ -191,7 +231,11 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
     
     func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
         // Create and configure a node for the anchor added to the view's session.
-        let newWord = WordProvider.shared.getNextWord()
+        guard let wordProvider = wordProvider else {
+            return nil
+        }
+        
+        let newWord = wordProvider.getNextWord()
         print("newWord: \(newWord)")
         let labelNode = SKLabelNode(text: newWord) //"👾")
         labelNode.fontSize = 50

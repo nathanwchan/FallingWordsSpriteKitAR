@@ -8,27 +8,28 @@
 
 import Foundation
 
-var easy_word_dic = ["name": ["Aldo", "Clay", "Dan", "Ethan", "Gus", "Henry", "Angle", "Bay", "Kathy", "Kelly", "Lily", "Liza"],
-                     "office": [],
-                     "transportation": [],
-                     "airport": [],
-                     "shopping": []]
+enum Dictionary {
+    static let transportation = ["car", "bus", "plane", "limousine", "truck", "coupe", "minivan", "convertible", "motorcycle", "bicycle"]
+    static let simple = ["apple", "dog", "banana", "cat", "zebra", "chair"]
+    static let chinese = ["今天", "分钟", "你好", "可以", "高兴", "吃", "谢谢"]
+}
 
-var advanced_word_dic = ["name": [],
-                         "office": [],
-                         "transportation": [],
-                         "airport": [],
-                         "shopping": []]
-
-final class WordProvider {
-    static let shared = WordProvider()
-    private init() {
-        words = ["apple", "dog", "banana", "cat", "zebra", "chair"]
+class WordProvider {
+    var words: [String]
+    var currentIndex = 0
+    
+    init(type: String = "simple") {
+        switch type {
+        case "transportation":
+            words = Dictionary.transportation
+        case "chinese":
+            words = Dictionary.chinese
+        default:
+            words = Dictionary.simple
+        }
         
         words.shuffle()
     }
-    var words: [String]
-    var currentIndex = 0
     
     func getNextWord() -> String {
         if currentIndex > words.count - 1 {
