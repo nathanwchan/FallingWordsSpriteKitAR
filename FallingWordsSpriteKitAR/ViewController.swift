@@ -214,7 +214,19 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
                     if let labelNode = someNode as? SKLabelNode,
                         let nodeText = labelNode.text {
                         if nodeText.lowercased() == word.lowercased() {
-                            labelNode.removeFromParent()
+                            
+                            //labelNode.removeAllActions()
+                            //let bounceUp = SKAction.move(by: CGVector(dx: 0, dy: 10), duration: 1)
+
+                            labelNode.action(forKey: "fall")?.speed = -1
+                            labelNode.run( SKAction.sequence([
+                                    SKAction.group([
+                                        SKAction.wait(forDuration: 1),
+                                        SKAction.fadeOut(withDuration: 1)
+                                        ]),
+                                    SKAction.run( {labelNode.removeFromParent() }),
+                                ]))
+                            //labelNode.removeFromParent()
                             score += 1
                             if currentWordIndex >= maxWords {
                                 resetProgressStackView()
@@ -256,12 +268,19 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
         labelNode.addChild(shadowLabelNode)
         
         let moveDown = SKAction.moveTo(y: CGFloat(-400), duration: 5)
-
-        labelNode.removeAllActions()
-        labelNode.run(moveDown) {
+        let destroy = SKAction.run() {
             self.missedWord(newWord)
             labelNode.removeFromParent()
         }
+        
+        let seq = SKAction.sequence([moveDown, destroy])
+
+        labelNode.removeAllActions()
+//        labelNode.run(moveDown) {
+//            self.missedWord(newWord)
+//            labelNode.removeFromParent()
+//        }
+        labelNode.run(seq, withKey: "fall")
         
         return labelNode
     }
