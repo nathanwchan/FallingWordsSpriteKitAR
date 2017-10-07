@@ -20,6 +20,8 @@
 		C133674F1F896F07006E8705 /* chevron_right.png in Resources */ = {isa = PBXBuildFile; fileRef = C133674C1F896F07006E8705 /* chevron_right.png */; };
 		C13367501F896F07006E8705 /* death.png in Resources */ = {isa = PBXBuildFile; fileRef = C133674D1F896F07006E8705 /* death.png */; };
 		C13367521F89773E006E8705 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13367511F89773E006E8705 /* HomeViewController.swift */; };
+		C13367551F898AAA006E8705 /* fallingwords_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = C13367531F898AAA006E8705 /* fallingwords_mark.png */; };
+		C13367561F898AAA006E8705 /* fallingwords_tall.png in Resources */ = {isa = PBXBuildFile; fileRef = C13367541F898AAA006E8705 /* fallingwords_tall.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		C133674C1F896F07006E8705 /* chevron_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chevron_right.png; path = FallingWordsSpriteKitAR/images/chevron_right.png; sourceTree = SOURCE_ROOT; };
 		C133674D1F896F07006E8705 /* death.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = death.png; path = FallingWordsSpriteKitAR/images/death.png; sourceTree = SOURCE_ROOT; };
 		C13367511F89773E006E8705 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C13367531F898AAA006E8705 /* fallingwords_mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fallingwords_mark.png; path = FallingWordsSpriteKitAR/images/fallingwords_mark.png; sourceTree = SOURCE_ROOT; };
+		C13367541F898AAA006E8705 /* fallingwords_tall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fallingwords_tall.png; path = FallingWordsSpriteKitAR/images/fallingwords_tall.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,8 @@
 		C133674A1F896EFD006E8705 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				C13367531F898AAA006E8705 /* fallingwords_mark.png */,
+				C13367541F898AAA006E8705 /* fallingwords_tall.png */,
 				C133674B1F896F07006E8705 /* chevron_left.png */,
 				C133674C1F896F07006E8705 /* chevron_right.png */,
 				C133674D1F896F07006E8705 /* death.png */,
@@ -158,10 +164,12 @@
 			files = (
 				C13367501F896F07006E8705 /* death.png in Resources */,
 				C133674E1F896F07006E8705 /* chevron_left.png in Resources */,
+				C13367561F898AAA006E8705 /* fallingwords_tall.png in Resources */,
 				C13367271F88A7B3006E8705 /* Scene.sks in Resources */,
 				C133674F1F896F07006E8705 /* chevron_right.png in Resources */,
 				C13367331F88A7B3006E8705 /* LaunchScreen.storyboard in Resources */,
 				C13367301F88A7B3006E8705 /* Assets.xcassets in Resources */,
+				C13367551F898AAA006E8705 /* fallingwords_mark.png in Resources */,
 				C133672E1F88A7B3006E8705 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

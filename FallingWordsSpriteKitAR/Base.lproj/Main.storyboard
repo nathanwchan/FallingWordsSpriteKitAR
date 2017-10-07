@@ -22,6 +22,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fallingwords_tall.png" translatesAutoresizingMaskIntoConstraints="NO" id="KHv-pj-vZl">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogm-NI-BnI">
                                 <rect key="frame" x="92" y="213" width="191" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -82,8 +85,23 @@
                                     <action selector="chineseButtonClick:" destination="Sj6-cB-DeF" eventType="touchUpInside" id="RlC-qI-ZF1"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fallingwords_mark.png" translatesAutoresizingMaskIntoConstraints="NO" id="fu2-8W-WJW">
+                                <rect key="frame" x="40" y="20" width="295" height="139"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="295" id="Tkg-mS-66o"/>
+                                    <constraint firstAttribute="height" constant="139" id="Uun-ez-t23"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fu2-8W-WJW" firstAttribute="centerX" secondItem="jFl-Qg-vyo" secondAttribute="centerX" id="1Ap-g0-t0L"/>
+                            <constraint firstItem="jFl-Qg-vyo" firstAttribute="trailing" secondItem="KHv-pj-vZl" secondAttribute="trailing" id="B3f-CH-uJC"/>
+                            <constraint firstItem="jFl-Qg-vyo" firstAttribute="bottom" secondItem="KHv-pj-vZl" secondAttribute="bottom" id="E2c-aa-a8x"/>
+                            <constraint firstItem="fu2-8W-WJW" firstAttribute="top" secondItem="jFl-Qg-vyo" secondAttribute="top" id="Fed-t7-9Dr"/>
+                            <constraint firstItem="jFl-Qg-vyo" firstAttribute="top" secondItem="KHv-pj-vZl" secondAttribute="top" constant="20" id="bsi-gp-QyG"/>
+                            <constraint firstItem="KHv-pj-vZl" firstAttribute="leading" secondItem="jFl-Qg-vyo" secondAttribute="leading" id="cPi-u9-Eaf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="jFl-Qg-vyo"/>
                     </view>
                     <connections>
@@ -185,4 +203,8 @@
             <point key="canvasLocation" x="32.799999999999997" y="46.326836581709152"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fallingwords_mark.png" width="581" height="204"/>
+        <image name="fallingwords_tall.png" width="750" height="1205"/>
+    </resources>
 </document>
