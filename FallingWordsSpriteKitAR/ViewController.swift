@@ -9,18 +9,36 @@
 import UIKit
 import SpriteKit
 import ARKit
+import Speech
 
-class ViewController: UIViewController, ARSKViewDelegate {
+class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDelegate {
     
     @IBOutlet weak var sceneView: ARSKView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var wordsLabel: UILabel!
     
+    private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))!
+    
+    private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
+    private var recognitionTask: SFSpeechRecognitionTask?
+    private let audioEngine = AVAudioEngine()
+    
+    var score: Int = 0 {
+        didSet {
+            self.scoreLabel.text = String(describing: score)
+        }
+    }
+    var lastWord: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set the view's delegate
         sceneView.delegate = self
+        speechRecognizer.delegate = self
+        
+        SFSpeechRecognizer.requestAuthorization { (authStatus) in
+        }
+        startRecording()
         
         // Show statistics such as fps and node count
         sceneView.showsFPS = true
@@ -59,7 +77,92 @@ class ViewController: UIViewController, ARSKViewDelegate {
         print("game over")
     }
     
+    func startRecording() {
+        
+        if recognitionTask != nil {  //1
+            recognitionTask?.cancel()
+            recognitionTask = nil
+        }
+        
+        let audioSession = AVAudioSession.sharedInstance()  //2
+        do {
+            try audioSession.setCategory(AVAudioSessionCategoryRecord)
+            try audioSession.setMode(AVAudioSessionModeMeasurement)
+            try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
+        } catch {
+            print("audioSession properties weren't set because of an error.")
+        }
+        
+        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()  //3
+        
+        let inputNode = audioEngine.inputNode
+        
+        guard let recognitionRequest = recognitionRequest else {
+            fatalError("Unable to create an SFSpeechAudioBufferRecognitionRequest object")
+        } //5
+        
+        recognitionRequest.shouldReportPartialResults = true  //6
+        
+        recognitionTask = speechRecognizer.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in  //7
+            
+            var isFinal = false  //8
+            
+            if result != nil {
+                guard let currentWord = result?.bestTranscription.segments.last?.substring.lowercased() else {
+                    return
+                }
+                if self.lastWord == currentWord {
+                    return
+                }
+                self.lastWord = currentWord
+                print("speechrecognizer word: \(currentWord)")
+                self.wordsLabel.text = currentWord
+                self.findMatchingWordInScene(word: currentWord)
+                
+                isFinal = (result?.isFinal)!
+            }
+            
+            if error != nil || isFinal {  //10
+                self.audioEngine.stop()
+                inputNode.removeTap(onBus: 0)
+                
+                self.recognitionRequest = nil
+                self.recognitionTask = nil
+            }
+        })
+        
+        let recordingFormat = inputNode.outputFormat(forBus: 0)  //11
+        inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, when) in
+            self.recognitionRequest?.append(buffer)
+        }
+        
+        audioEngine.prepare()  //12
+        
+        do {
+            try audioEngine.start()
+        } catch {
+            print("audioEngine couldn't start because of an error.")
+        }
+    }
+    
     // MARK: - ARSKViewDelegate
+    
+    func findMatchingWordInScene(word: String) {
+        if let currentFrame = sceneView.session.currentFrame {
+            for anchor in currentFrame.anchors {
+                if let someNode = sceneView.node(for: anchor){
+                    if let labelNode = someNode as? SKLabelNode,
+                        let nodeText = labelNode.text {
+                        if nodeText.lowercased() == word.lowercased() {
+                            labelNode.removeFromParent()
+                            score += 1
+                        }
+                    }
+                }
+
+            }
+        }
+    }
     
     func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
         // Create and configure a node for the anchor added to the view's session.

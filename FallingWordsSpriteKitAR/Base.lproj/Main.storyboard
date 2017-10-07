@@ -23,14 +23,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i1z-RP-lWA">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Sl-zi-urk">
-                                        <rect key="frame" x="8" y="15" width="44.5" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="words" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ezg-JP-VUL">
+                                        <rect key="frame" x="164" y="14" width="46.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="words" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ezg-JP-VUL">
-                                        <rect key="frame" x="164" y="14" width="46.5" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Sl-zi-urk">
+                                        <rect key="frame" x="15" y="15" width="10.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -42,7 +42,7 @@
                                     <constraint firstItem="Ezg-JP-VUL" firstAttribute="centerX" secondItem="i1z-RP-lWA" secondAttribute="centerX" id="6Xu-Oy-s0s"/>
                                     <constraint firstAttribute="height" constant="50" id="9dI-5b-GBO"/>
                                     <constraint firstItem="Ezg-JP-VUL" firstAttribute="top" secondItem="i1z-RP-lWA" secondAttribute="top" constant="14" id="Zdx-gb-1NP"/>
-                                    <constraint firstItem="2Sl-zi-urk" firstAttribute="leading" secondItem="i1z-RP-lWA" secondAttribute="leading" constant="8" id="gVK-KT-cyJ"/>
+                                    <constraint firstItem="2Sl-zi-urk" firstAttribute="leading" secondItem="i1z-RP-lWA" secondAttribute="leading" constant="15" id="gVK-KT-cyJ"/>
                                     <constraint firstAttribute="bottom" secondItem="Ezg-JP-VUL" secondAttribute="bottom" constant="15" id="rvB-Qc-oQj"/>
                                     <constraint firstItem="2Sl-zi-urk" firstAttribute="top" secondItem="i1z-RP-lWA" secondAttribute="top" constant="15" id="xOB-5s-N87"/>
                                 </constraints>
