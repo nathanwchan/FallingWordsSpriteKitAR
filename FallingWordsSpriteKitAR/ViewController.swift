@@ -199,8 +199,11 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
         labelNode.horizontalAlignmentMode = .center
         labelNode.verticalAlignmentMode = .center
         
-        let moveDown = SKAction.moveTo(y: CGFloat(-400), duration: 5)
-
+        let moveDown = SKAction.moveTo(y: CGFloat(-400), duration: 2)
+        moveDown.timingFunction = { t -> Float in
+            return (pow(t, 3) + 0.1 * t) / (1.1)
+        }
+        
         labelNode.removeAllActions()
         labelNode.run(moveDown) {
             self.missedWord(newWord)
