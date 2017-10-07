@@ -17,6 +17,7 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var wordsLabel: UILabel!
     @IBOutlet weak var redLabel: UILabel!
+    @IBOutlet weak var progressStackView: UIStackView!
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))!
     
@@ -30,12 +31,23 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
         }
     }
     var lastWord: String?
+    var currentWordIndex = 0
+    let maxWords = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         sceneView.delegate = self
         speechRecognizer.delegate = self
+        
+        for _ in 0..<maxWords {
+            let uiview = UIView.init(frame: .zero)
+            uiview.backgroundColor = .gray
+            progressStackView.addArrangedSubview(uiview)
+            progressStackView.distribution = .fillEqually
+            progressStackView.alignment = .fill
+            progressStackView.spacing = 1
+        }
         
         SFSpeechRecognizer.requestAuthorization { (authStatus) in
         }
@@ -73,6 +85,13 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
         // Release any cached data, images, etc that aren't in use.
     }
     
+    func resetProgressStackView() {
+        currentWordIndex = 0
+        for uiview in progressStackView.arrangedSubviews {
+            uiview.backgroundColor = .gray
+        }
+    }
+    
     func missedWord(_ word: String) {
 //        sceneView.session.pause()
         print("missedWord: \(word)")
@@ -100,6 +119,12 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
             self.redLabel.alpha = 0.0
         }, completion: { _ in
         })
+        
+        if currentWordIndex >= maxWords {
+            resetProgressStackView()
+        }
+        progressStackView.arrangedSubviews[currentWordIndex].backgroundColor = .red
+        currentWordIndex += 1
     }
     
     func startRecording() {
@@ -181,6 +206,11 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
                         if nodeText.lowercased() == word.lowercased() {
                             labelNode.removeFromParent()
                             score += 1
+                            if currentWordIndex >= maxWords {
+                                resetProgressStackView()
+                            }
+                            progressStackView.arrangedSubviews[currentWordIndex].backgroundColor = .green
+                            currentWordIndex += 1
                         }
                     }
                 }

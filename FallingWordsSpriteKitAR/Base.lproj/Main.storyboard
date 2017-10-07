@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <arskView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rNe-cM-Aqj">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="597"/>
                             </arskView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i1z-RP-lWA">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
@@ -55,20 +55,40 @@
                                     <constraint firstItem="2Sl-zi-urk" firstAttribute="top" secondItem="i1z-RP-lWA" secondAttribute="top" constant="15" id="xOB-5s-N87"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhd-0a-6fL" userLabel="ProgressView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="10"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqm-he-UsA">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="10"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="eqm-he-UsA" firstAttribute="leading" secondItem="rhd-0a-6fL" secondAttribute="leading" id="1Ji-bX-e2b"/>
+                                    <constraint firstAttribute="trailing" secondItem="eqm-he-UsA" secondAttribute="trailing" id="A4H-Re-0wk"/>
+                                    <constraint firstItem="eqm-he-UsA" firstAttribute="top" secondItem="rhd-0a-6fL" secondAttribute="top" id="VH9-0R-Y7E"/>
+                                    <constraint firstItem="eqm-he-UsA" firstAttribute="height" secondItem="rhd-0a-6fL" secondAttribute="height" id="jG8-Vb-cQO"/>
+                                    <constraint firstAttribute="height" constant="10" id="y4C-gS-8jd"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eQW-3a-0rh" firstAttribute="trailing" secondItem="rNe-cM-Aqj" secondAttribute="trailing" id="KBV-13-sTj"/>
                             <constraint firstItem="rNe-cM-Aqj" firstAttribute="leading" secondItem="eQW-3a-0rh" secondAttribute="leading" id="Onn-kO-XS7"/>
                             <constraint firstItem="eQW-3a-0rh" firstAttribute="trailing" secondItem="i1z-RP-lWA" secondAttribute="trailing" id="ZET-KC-obP"/>
+                            <constraint firstItem="eQW-3a-0rh" firstAttribute="trailing" secondItem="rhd-0a-6fL" secondAttribute="trailing" id="jju-hT-c3R"/>
                             <constraint firstItem="i1z-RP-lWA" firstAttribute="leading" secondItem="eQW-3a-0rh" secondAttribute="leading" id="kkv-wB-eBx"/>
                             <constraint firstItem="eQW-3a-0rh" firstAttribute="bottom" secondItem="i1z-RP-lWA" secondAttribute="bottom" id="l3h-bN-XmQ"/>
-                            <constraint firstItem="eQW-3a-0rh" firstAttribute="top" secondItem="rNe-cM-Aqj" secondAttribute="top" constant="20" id="llh-xJ-tR1"/>
+                            <constraint firstItem="eQW-3a-0rh" firstAttribute="top" secondItem="rNe-cM-Aqj" secondAttribute="top" id="llh-xJ-tR1"/>
+                            <constraint firstItem="eQW-3a-0rh" firstAttribute="top" secondItem="rhd-0a-6fL" secondAttribute="top" id="pkx-5z-EDD"/>
                             <constraint firstItem="rNe-cM-Aqj" firstAttribute="bottom" secondItem="i1z-RP-lWA" secondAttribute="top" id="q2J-me-mUi"/>
+                            <constraint firstItem="rhd-0a-6fL" firstAttribute="leading" secondItem="eQW-3a-0rh" secondAttribute="leading" id="uMU-F7-IUg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eQW-3a-0rh"/>
                     </view>
                     <connections>
+                        <outlet property="progressStackView" destination="eqm-he-UsA" id="wTe-NN-zBF"/>
                         <outlet property="redLabel" destination="EsB-d2-o8k" id="2LC-JP-Cii"/>
                         <outlet property="sceneView" destination="rNe-cM-Aqj" id="ty0-S9-I5z"/>
                         <outlet property="scoreLabel" destination="2Sl-zi-urk" id="j6s-Hd-c0G"/>
