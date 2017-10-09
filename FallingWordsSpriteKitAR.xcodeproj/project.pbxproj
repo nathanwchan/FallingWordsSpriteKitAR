@@ -29,6 +29,11 @@
 		C13367641F8993C8006E8705 /* falling80.png in Resources */ = {isa = PBXBuildFile; fileRef = C13367601F8993C8006E8705 /* falling80.png */; };
 		C13367651F8993C8006E8705 /* falling20.png in Resources */ = {isa = PBXBuildFile; fileRef = C13367611F8993C8006E8705 /* falling20.png */; };
 		C13367671F89958D006E8705 /* falling1024.png in Resources */ = {isa = PBXBuildFile; fileRef = C13367661F89958D006E8705 /* falling1024.png */; };
+		C133676E1F8C18C0006E8705 /* grade5.txt in Resources */ = {isa = PBXBuildFile; fileRef = C13367691F8C18BF006E8705 /* grade5.txt */; };
+		C133676F1F8C18C0006E8705 /* grade2.txt in Resources */ = {isa = PBXBuildFile; fileRef = C133676A1F8C18BF006E8705 /* grade2.txt */; };
+		C13367701F8C18C0006E8705 /* grade3.txt in Resources */ = {isa = PBXBuildFile; fileRef = C133676B1F8C18BF006E8705 /* grade3.txt */; };
+		C13367711F8C18C0006E8705 /* grade1.txt in Resources */ = {isa = PBXBuildFile; fileRef = C133676C1F8C18BF006E8705 /* grade1.txt */; };
+		C13367721F8C18C0006E8705 /* grade4.txt in Resources */ = {isa = PBXBuildFile; fileRef = C133676D1F8C18BF006E8705 /* grade4.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +61,11 @@
 		C13367601F8993C8006E8705 /* falling80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = falling80.png; sourceTree = "<group>"; };
 		C13367611F8993C8006E8705 /* falling20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = falling20.png; sourceTree = "<group>"; };
 		C13367661F89958D006E8705 /* falling1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = falling1024.png; sourceTree = "<group>"; };
+		C13367691F8C18BF006E8705 /* grade5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = grade5.txt; sourceTree = "<group>"; };
+		C133676A1F8C18BF006E8705 /* grade2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = grade2.txt; sourceTree = "<group>"; };
+		C133676B1F8C18BF006E8705 /* grade3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = grade3.txt; sourceTree = "<group>"; };
+		C133676C1F8C18BF006E8705 /* grade1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = grade1.txt; sourceTree = "<group>"; };
+		C133676D1F8C18BF006E8705 /* grade4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = grade4.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +98,7 @@
 		C13367231F88A7B3006E8705 /* FallingWordsSpriteKitAR */ = {
 			isa = PBXGroup;
 			children = (
+				C13367681F8C0EE2006E8705 /* words */,
 				C13367571F8992B2006E8705 /* icons */,
 				C133674A1F896EFD006E8705 /* images */,
 				C13367241F88A7B3006E8705 /* AppDelegate.swift */,
@@ -130,6 +141,18 @@
 				C133675A1F89934A006E8705 /* falling180.png */,
 			);
 			path = icons;
+			sourceTree = "<group>";
+		};
+		C13367681F8C0EE2006E8705 /* words */ = {
+			isa = PBXGroup;
+			children = (
+				C133676C1F8C18BF006E8705 /* grade1.txt */,
+				C133676A1F8C18BF006E8705 /* grade2.txt */,
+				C133676B1F8C18BF006E8705 /* grade3.txt */,
+				C133676D1F8C18BF006E8705 /* grade4.txt */,
+				C13367691F8C18BF006E8705 /* grade5.txt */,
+			);
+			path = words;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,12 +214,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C13367721F8C18C0006E8705 /* grade4.txt in Resources */,
+				C13367711F8C18C0006E8705 /* grade1.txt in Resources */,
 				C13367621F8993C8006E8705 /* falling60.png in Resources */,
 				C13367501F896F07006E8705 /* death.png in Resources */,
 				C133674E1F896F07006E8705 /* chevron_left.png in Resources */,
 				C13367561F898AAA006E8705 /* fallingwords_tall.png in Resources */,
 				C13367271F88A7B3006E8705 /* Scene.sks in Resources */,
 				C13367641F8993C8006E8705 /* falling80.png in Resources */,
+				C13367701F8C18C0006E8705 /* grade3.txt in Resources */,
 				C13367671F89958D006E8705 /* falling1024.png in Resources */,
 				C13367631F8993C8006E8705 /* falling40.png in Resources */,
 				C133674F1F896F07006E8705 /* chevron_right.png in Resources */,
@@ -204,9 +230,11 @@
 				C13367301F88A7B3006E8705 /* Assets.xcassets in Resources */,
 				C133675C1F89934A006E8705 /* falling180.png in Resources */,
 				C13367551F898AAA006E8705 /* fallingwords_mark.png in Resources */,
+				C133676E1F8C18C0006E8705 /* grade5.txt in Resources */,
 				C133675D1F89934A006E8705 /* falling120.png in Resources */,
 				C133672E1F88A7B3006E8705 /* Main.storyboard in Resources */,
 				C13367651F8993C8006E8705 /* falling20.png in Resources */,
+				C133676F1F8C18C0006E8705 /* grade2.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
