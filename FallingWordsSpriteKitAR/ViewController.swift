@@ -18,8 +18,6 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
     @IBOutlet weak var wordsLabel: UILabel!
     @IBOutlet weak var redLabel: UILabel!
     @IBOutlet weak var progressStackView: UIStackView!
-
-    
     
     private var speechRecognizer: SFSpeechRecognizer?
     
@@ -60,6 +58,7 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
             progressStackView.alignment = .fill
             progressStackView.spacing = 1
         }
+        wordsLabel.text = "Grade \(wordProviderType?.last ?? "1")"
         
         SFSpeechRecognizer.requestAuthorization { (authStatus) in
         }

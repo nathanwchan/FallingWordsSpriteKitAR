@@ -10,22 +10,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var buttonsStackView: UIStackView!
     var wordProviderType: String = "simple"
-
-    @IBAction func transportationButtonClick(_ sender: Any) {
-        wordProviderType = "transportation"
-        segueToARVC()
-    }
-    @IBAction func chineseButtonClick(_ sender: Any) {
-        wordProviderType = "chinese"
-        segueToARVC()
-    }
-    @IBOutlet weak var namesButton: UIButton!
-    @IBOutlet weak var officeButton: UIButton!
-    @IBOutlet weak var transportationButton: UIButton!
-    @IBOutlet weak var airportButton: UIButton!
-    @IBOutlet weak var shoppingButton: UIButton!
-    @IBOutlet weak var chineseButton: UIButton!
     
     func segueToARVC() {
         DispatchQueue.main.async {
@@ -51,11 +37,28 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        namesButton.layer.cornerRadius = 20
-        officeButton.layer.cornerRadius = 20
-        transportationButton.layer.cornerRadius = 20
-        airportButton.layer.cornerRadius = 20
-        shoppingButton.layer.cornerRadius = 20
-        chineseButton.layer.cornerRadius = 20
+        buttonsStackView.translatesAutoresizingMaskIntoConstraints = false
+        buttonsStackView.distribution = .equalSpacing
+        buttonsStackView.alignment = .fill
+        buttonsStackView.spacing = 20
+        
+        for i in 1...5 {
+            let gradeButton = UIButton(frame: .zero)
+            gradeButton.tag = i
+            gradeButton.addTarget(self, action: #selector(self.buttonClicked(sender:)), for: .touchUpInside)
+            gradeButton.setTitle("Grade \(i)", for: .normal)
+            gradeButton.setTitleColor(UIColor(red: 0.06, green: 0.29, blue: 0.56, alpha: 1.0), for: .normal)
+            gradeButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 23)
+            gradeButton.backgroundColor = .white
+            gradeButton.layer.cornerRadius = 20
+            gradeButton.heightAnchor.constraint(equalToConstant: 50)
+            
+            buttonsStackView.addArrangedSubview(gradeButton)
+        }
+    }
+    
+    @objc func buttonClicked(sender: UIButton) {
+        self.wordProviderType = "grade\(sender.tag)"
+        segueToARVC()
     }
 }

@@ -26,7 +26,15 @@ class WordProvider {
         case "chinese":
             words = Dictionary.chinese
         default:
-            words = Dictionary.simple
+            if let filepath = Bundle.main.path(forResource: type, ofType: "txt") {
+                do {
+                    words = try String(contentsOfFile: filepath).components(separatedBy: "\n")
+                } catch {
+                    words = Dictionary.simple
+                }
+            } else {
+                words = Dictionary.simple
+            }
         }
         
         words.shuffle()
