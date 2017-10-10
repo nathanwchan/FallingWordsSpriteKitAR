@@ -43,6 +43,7 @@ class WordProvider {
     func getNextWord() -> String {
         if currentIndex > words.count - 1 {
             currentIndex = 0
+            words.shuffle()
         }
         currentIndex += 1
         return words[currentIndex - 1]

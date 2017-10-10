@@ -25,3 +25,6 @@ func getRightTriangleSideLength(_ aShortSideLength: Float, _ theLongSideLength: 
     return sqrt(powf(theLongSideLength, 2) - powf(aShortSideLength, 2))
 }
 
+enum Globals {
+    static let maxWords = 10
+}

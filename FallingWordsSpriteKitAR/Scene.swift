@@ -29,7 +29,6 @@ class Scene: SKScene {
         }
     }
 
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     func addNewWordToScene() {
         guard let sceneView = self.view as? ARSKView else {
             return
@@ -46,7 +45,6 @@ class Scene: SKScene {
             
             // Translate in left/right direction
             let horizontalTranslate = getRandomFloat(between: -1.0, and: 1.0)
-//            print("horizontalTranslate: \(horizontalTranslate)")
             translation.columns.3.y = horizontalTranslate
             
             // Translate in forward (depth) direction
