@@ -12,6 +12,7 @@ import ARKit
 class Scene: SKScene {
     var lastUpdateTime: TimeInterval?
     let frameRate = 3.0 // in seconds
+    var wordCounter = 0
     
     override func didMove(to view: SKView) {
         // Setup your scene here
@@ -19,9 +20,13 @@ class Scene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+        if wordCounter >= Globals.maxWords {
+            return
+        }
         if let lastUpdateTime = lastUpdateTime {
             if currentTime - lastUpdateTime >= frameRate {
                 addNewWordToScene()
+                wordCounter += 1
                 self.lastUpdateTime = currentTime
             }
         } else {
