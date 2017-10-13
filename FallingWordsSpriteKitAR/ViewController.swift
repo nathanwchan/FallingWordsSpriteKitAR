@@ -31,46 +31,14 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
     var wordProviderType: String?
     var score: Int = 0 {
         didSet {
-            self.scoreLabel.text = "Score: \(score)"
+            print("Score: \(score)")
         }
     }
     var lastWord: String?
     var currentCompletedWordIndex = 0
     
-    func setupGameCompleteView() {
-        gameCompleteView.backgroundColor = UIColor(red: 0.06, green: 0.29, blue: 0.56, alpha: 1.0)
-        gameCompleteStackView.translatesAutoresizingMaskIntoConstraints = false
-        gameCompleteStackView.distribution = .equalSpacing
-        gameCompleteStackView.alignment = .fill
-        gameCompleteStackView.spacing = 20
-        
-        let playAgainButton = UIButton(frame: .zero)
-        playAgainButton.addTarget(self, action: #selector(self.startGameSession), for: .touchUpInside)
-        playAgainButton.setTitle("Play Again", for: .normal)
-        playAgainButton.setTitleColor(UIColor(red: 0.06, green: 0.29, blue: 0.56, alpha: 1.0), for: .normal)
-        playAgainButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 23)
-        playAgainButton.backgroundColor = .white
-        playAgainButton.layer.cornerRadius = 20
-        playAgainButton.heightAnchor.constraint(equalToConstant: 50)
-        
-        gameCompleteStackView.addArrangedSubview(playAgainButton)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupGameCompleteView()
-        
-        var languageCode = "en-US"
-        if let wordProviderType = wordProviderType, wordProviderType == "chinese" {
-            languageCode = "zh-Hans"
-        }
-        wordProvider = WordProvider(type: wordProviderType ?? "simple")
-        
-        speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: languageCode))
-        
-        sceneView.delegate = self
-        speechRecognizer?.delegate = self
         
         startGameSession()
         
@@ -82,10 +50,9 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
             progressStackView.alignment = .fill
             progressStackView.spacing = 1
         }
-        wordsLabel.text = "Grade \(wordProviderType?.last ?? "1")"
         
-        SFSpeechRecognizer.requestAuthorization { (authStatus) in
-        }
+        scoreLabel.text = wordProviderType == "chinese" ? "中文" : "Grade \(wordProviderType?.last ?? "1")"
+        wordsLabel.text = ""
         
         // Show statistics such as fps and node count
 //        sceneView.showsFPS = true
@@ -117,6 +84,20 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
     @objc func startGameSession() {
         gameCompleteView.isHidden = true
         
+        var languageCode = "en-US"
+        if let wordProviderType = wordProviderType, wordProviderType == "chinese" {
+            languageCode = "zh-Hans"
+        }
+        wordProvider = WordProvider(type: wordProviderType ?? "simple")
+        
+        speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: languageCode))
+        
+        sceneView.delegate = self
+        speechRecognizer?.delegate = self
+        
+        SFSpeechRecognizer.requestAuthorization { (authStatus) in
+        }
+        
         startRecording()
         
         score = 0
@@ -141,7 +122,50 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
         sceneView.scene?.view?.isPaused = true
         sceneView.scene?.removeAllChildren()
         
+        gameCompleteView.backgroundColor = UIColor(red: 0.06, green: 0.29, blue: 0.56, alpha: 1.0)
+        gameCompleteStackView.translatesAutoresizingMaskIntoConstraints = false
+        gameCompleteStackView.distribution = .fill
+        gameCompleteStackView.alignment = .fill
+        gameCompleteStackView.spacing = 20
+        gameCompleteStackView.layoutMargins = .init(top: 20, left: 20, bottom: 20, right: 20)
+        
+        var scoreLabelText: String
+        switch score {
+        case 0...3:
+            scoreLabelText = "Try again!"
+        case 4...7:
+            scoreLabelText = "Nice!"
+        case 8...10:
+            scoreLabelText = "Wow!"
+        default:
+            scoreLabelText = "Booyah!"
+        }
+        let scoreLabel = UILabel(frame: .zero)
+        print("\(scoreLabelText)\n\(score)/\(Globals.maxWords)")
+        scoreLabel.text = "\(scoreLabelText)\n\(score)/\(Globals.maxWords)"
+        scoreLabel.textColor = .white
+        scoreLabel.textAlignment = .center
+        scoreLabel.font = UIFont(name: "HelveticaNeue", size: 20)
+        scoreLabel.numberOfLines = 2
+        
+        gameCompleteStackView.addArrangedSubview(scoreLabel)
+        
+        let playAgainButton = UIButton(frame: .zero)
+        playAgainButton.addTarget(self, action: #selector(self.backToMainMenu), for: .touchUpInside)
+        playAgainButton.setTitle("Main Menu", for: .normal)
+        playAgainButton.setTitleColor(UIColor(red: 0.06, green: 0.29, blue: 0.56, alpha: 1.0), for: .normal)
+        playAgainButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 23)
+        playAgainButton.backgroundColor = .white
+        playAgainButton.layer.cornerRadius = 5
+        playAgainButton.heightAnchor.constraint(equalToConstant: 50)
+        
+        gameCompleteStackView.addArrangedSubview(playAgainButton)
+        
         gameCompleteView.isHidden = false
+    }
+    
+    @objc func backToMainMenu() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     func missedWord(_ word: String) {
@@ -171,11 +195,12 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
         }, completion: { _ in
         })
         
-        if currentCompletedWordIndex >= Globals.maxWords - 1 {
-            gameSessionComplete()
-        } else {
-            progressStackView.arrangedSubviews[currentCompletedWordIndex].backgroundColor = .red
-            currentCompletedWordIndex += 1
+        DispatchQueue.main.async {
+            self.progressStackView.arrangedSubviews[self.currentCompletedWordIndex].backgroundColor = .red
+            self.currentCompletedWordIndex += 1
+            if self.currentCompletedWordIndex >= Globals.maxWords {
+                self.gameSessionComplete()
+            }
         }
     }
     
@@ -265,15 +290,16 @@ class ViewController: UIViewController, ARSKViewDelegate, SFSpeechRecognizerDele
                                         ]),
                                     SKAction.run({
                                         labelNode.removeFromParent()
-                                        if self.currentCompletedWordIndex >= Globals.maxWords - 1 {
-                                            self.gameSessionComplete()
-                                        } else {
+                                        DispatchQueue.main.async {
+                                            self.score += 1
                                             self.progressStackView.arrangedSubviews[self.currentCompletedWordIndex].backgroundColor = .green
                                             self.currentCompletedWordIndex += 1
+                                            if self.currentCompletedWordIndex >= Globals.maxWords {
+                                                self.gameSessionComplete()
+                                            }
                                         }
                                     }),
                                 ]))
-                            score += 1
                         }
                     }
                 }

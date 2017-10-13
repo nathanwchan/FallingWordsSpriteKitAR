@@ -125,30 +125,30 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lqa-RF-g8B" userLabel="Game Complete View">
-                                <rect key="frame" x="100" y="164" width="175" height="403"/>
+                                <rect key="frame" x="80" y="234" width="216" height="263"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qky-av-HjA" userLabel="Game Complete Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="175" height="403"/>
+                                        <rect key="frame" x="20" y="20" width="176" height="223"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="qky-av-HjA" firstAttribute="leading" secondItem="Lqa-RF-g8B" secondAttribute="leading" id="NHu-sy-a7c"/>
-                                    <constraint firstAttribute="bottom" secondItem="qky-av-HjA" secondAttribute="bottom" id="hx3-gN-j1U"/>
-                                    <constraint firstAttribute="trailing" secondItem="qky-av-HjA" secondAttribute="trailing" id="jSQ-RA-bTM"/>
-                                    <constraint firstItem="qky-av-HjA" firstAttribute="top" secondItem="Lqa-RF-g8B" secondAttribute="top" id="n8d-fb-Red"/>
+                                    <constraint firstItem="qky-av-HjA" firstAttribute="leading" secondItem="Lqa-RF-g8B" secondAttribute="leading" constant="20" id="NHu-sy-a7c"/>
+                                    <constraint firstAttribute="height" constant="263" id="TBV-mZ-tEi"/>
+                                    <constraint firstAttribute="bottom" secondItem="qky-av-HjA" secondAttribute="bottom" constant="20" id="hx3-gN-j1U"/>
+                                    <constraint firstAttribute="trailing" secondItem="qky-av-HjA" secondAttribute="trailing" constant="20" id="jSQ-RA-bTM"/>
+                                    <constraint firstAttribute="width" constant="216" id="n2x-X3-aY1"/>
+                                    <constraint firstItem="qky-av-HjA" firstAttribute="top" secondItem="Lqa-RF-g8B" secondAttribute="top" constant="20" id="n8d-fb-Red"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Lqa-RF-g8B" firstAttribute="top" secondItem="eQW-3a-0rh" secondAttribute="top" constant="100" id="1J6-hP-rCz"/>
                             <constraint firstItem="eQW-3a-0rh" firstAttribute="trailing" secondItem="rNe-cM-Aqj" secondAttribute="trailing" id="KBV-13-sTj"/>
-                            <constraint firstItem="Lqa-RF-g8B" firstAttribute="leading" secondItem="eQW-3a-0rh" secondAttribute="leading" constant="100" id="NfB-B1-9C5"/>
                             <constraint firstItem="rNe-cM-Aqj" firstAttribute="leading" secondItem="eQW-3a-0rh" secondAttribute="leading" id="Onn-kO-XS7"/>
-                            <constraint firstItem="eQW-3a-0rh" firstAttribute="bottom" secondItem="Lqa-RF-g8B" secondAttribute="bottom" constant="100" id="XRN-Oz-idq"/>
                             <constraint firstItem="eQW-3a-0rh" firstAttribute="trailing" secondItem="i1z-RP-lWA" secondAttribute="trailing" id="ZET-KC-obP"/>
+                            <constraint firstItem="Lqa-RF-g8B" firstAttribute="centerY" secondItem="eQW-3a-0rh" secondAttribute="centerY" id="eYb-BJ-w4C"/>
                             <constraint firstItem="eQW-3a-0rh" firstAttribute="trailing" secondItem="rhd-0a-6fL" secondAttribute="trailing" id="jju-hT-c3R"/>
                             <constraint firstItem="i1z-RP-lWA" firstAttribute="leading" secondItem="eQW-3a-0rh" secondAttribute="leading" id="kkv-wB-eBx"/>
                             <constraint firstItem="eQW-3a-0rh" firstAttribute="bottom" secondItem="i1z-RP-lWA" secondAttribute="bottom" id="l3h-bN-XmQ"/>
@@ -156,7 +156,7 @@
                             <constraint firstItem="eQW-3a-0rh" firstAttribute="top" secondItem="rhd-0a-6fL" secondAttribute="top" id="pkx-5z-EDD"/>
                             <constraint firstItem="rNe-cM-Aqj" firstAttribute="bottom" secondItem="i1z-RP-lWA" secondAttribute="top" id="q2J-me-mUi"/>
                             <constraint firstItem="rhd-0a-6fL" firstAttribute="leading" secondItem="eQW-3a-0rh" secondAttribute="leading" id="uMU-F7-IUg"/>
-                            <constraint firstItem="eQW-3a-0rh" firstAttribute="trailing" secondItem="Lqa-RF-g8B" secondAttribute="trailing" constant="100" id="wGL-lc-g3n"/>
+                            <constraint firstItem="Lqa-RF-g8B" firstAttribute="centerX" secondItem="eQW-3a-0rh" secondAttribute="centerX" id="yia-Gx-C23"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eQW-3a-0rh"/>
                     </view>

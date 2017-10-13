@@ -11,7 +11,7 @@ import Foundation
 enum Dictionary {
     static let transportation = ["car", "bus", "plane", "limousine", "truck", "minivan", "convertible", "motorcycle", "bicycle"]
     static let simple = ["apple", "dog", "banana", "cat", "zebra", "chair"]
-    static let chinese = ["今天", "分钟", "你好", "可以", "高兴", "吃", "谢谢"]
+    static let chinese = ["今天", "分钟", "你好", "可以", "高兴", "吃", "谢谢", "明天", "年", "用", "去", "早上", "再见", "咖啡", "水", "老师", "苹果", "爸爸", "包子", "聪明", "我们", "她们", "什么", "九", "学校", "妈妈", "朋友", "小姐", "先生", "天气", "工作"]
     
 }
 
